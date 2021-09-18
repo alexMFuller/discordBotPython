@@ -1,8 +1,19 @@
 import sys
 import discord
+from discord.ext import commands
 import os
+import dotenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
+token = os.environ.get("api-token")
+
+print(os.environ)
+
 
 client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -10,10 +21,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if message.author == "blah":
-      if message.content.startswith('worm'):
-          await message.channel.send('Dumbass')
-  return
+    if message.content.startswith('worm'):
+        await message.channel.send('bird')
+        return
 
-
-client.run(os.getenv())
+client.run(token)
