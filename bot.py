@@ -28,4 +28,10 @@ async def on_message(message):
 async def hello(ctx):
     await ctx.send(f"Hello {ctx.author.name}!")
 
+
+@bot.command()
+async def test(ctx, arg1, arg2):
+    await ctx.send('You passed {} and {}'.format(arg1, arg2))
+
+
 client.run(API_KEY)
